@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   has_secure_password
 
-  before_save :downcase_email
+  # before_save :downcase_email
 
   # gravtastic(secure: true, filetype: :png, size: 100, default: 'robohash')
 end

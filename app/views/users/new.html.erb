@@ -1,13 +1,39 @@
 <% provide(:title, 'Sign up') %>
 <h1>Sign up</h1>
-<p>This will be a signup page for new users.</p>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@user, data: { turbo: false }) do |f| %>
+      <%= render 'shared/error_messages' %>
 
-<h1>New user</h1>
+      <div class="field mb-3 d-flex flex-row align-items-center justify-content-start">
+        <div class="flex-fill px-2">
+          <%= f.label :name %>
+          <p><%= f.text_field :name, class: 'form-control' %></p>
+        </div>
+      </div>
 
-<%#= render "form", user: @user %>
+      <div class="field mb-3 d-flex flex-row align-items-center justify-content-start">
+        <div class="flex-fill px-2">
+          <%= f.label :email %>
+          <p><%= f.email_field :email, class: 'form-control' %></p>
+        </div>
+      </div>
 
-<br>
+      <div class="field mb-3 d-flex flex-row align-items-center justify-content-start">
+        <div class="flex-fill px-2">
+          <%= f.label :password %>
+          <p> <%= f.password_field :password, class: 'form-control' %></p>
+        </div>
+      </div>
 
-<div>
-  <%#= link_to "Back to users", users_path %>
+      <div class="field mb-3 d-flex flex-row align-items-center justify-content-start">
+        <div class="flex-fill px-2">
+          <%= f.label :password_confirmation, "Confirmation" %>
+          <p> <%= f.password_field :password_confirmation, class: 'form-control' %></p>
+        </div>
+      </div>
+
+      <%= f.submit "Create my account", class: "btn btn-primary mb-3" %>
+    <% end %>
+  </div>
 </div>
