@@ -1,14 +1,12 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Users</h1>
-
-<div id="users">
+<% provide(:title, 'All users') %>
+<h1 class="mb-3">All users</h1>
+<ul class="users">
   <% @users.each do |user| %>
-    <%= render user, user = @user %>
-    <p>
-      <%= link_to "Show this user", @user %>
-    </p>
+    <li class="mb-3">
+      <%= gravatar_for user, size: 50 %>
+      <%= link_to user.name, user %>
+    </li>
   <% end %>
-</div>
+</ul>
 
 <%= link_to "New user", new_user_path %>
