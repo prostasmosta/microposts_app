@@ -1,27 +1,19 @@
 <div class="navbar navbar-expand navbar-light bg-light">
   <div class="container justify-content-start">
-    <%= link_to "sample app", root_path, class: 'navbar-brand', id: 'logo' %>
+    <%= link_to "sample app", root_path, class: 'navbar-brand' %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home", root_path, class: 'btn btn-light' %></li>
         <li><%= link_to "Help", help_path, class: 'btn btn-light' %></li>
         <% if logged_in? %>
-          <li><%= link_to "Users", '#' %></li>
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
-              Account
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <li><a class="dropdown-item"><%= link_to "Profile", current_user, class: 'btn btn-light' %></a></li>
-              <li><a class="dropdown-item"><%= link_to "Settings", '#', class: 'btn btn-light' %></a></li>
+          <li><%= link_to "Users", '#', class: 'btn btn-light' %></li>
 
-              <li><a class="dropdown-item">
-                <%= link_to "Log out", logout_path, method: "delete", class: 'btn btn-light' %></a>
-              </li>
-            </ul>
-          </div>
+          <li><%= link_to "Profile", current_user, class: 'btn btn-light' %></li>
+          <li><%= link_to "Settings", '#', class: 'btn btn-light' %></li>
+
+          <li><%= button_to "Log out", logout_path, method: "delete", class: 'btn btn-light' %></li>
         <% else %>
-          <li class="dropdown-item"><%= link_to "Log in", login_path, class: 'btn btn-light' %></li>
+          <li><%= link_to "Log in", login_path, class: 'btn btn-light' %></li>
         <% end %>
       </ul>
     </nav>
