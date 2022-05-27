@@ -6,7 +6,7 @@
   <% @users.each do |user| %>
     <%= render user, user = @user %>
     <p>
-      <%= link_to "Show this user", user %>
+      <%= link_to "Show this user", @user %>
     </p>
   <% end %>
 </div>

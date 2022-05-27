@@ -101,3 +101,12 @@ h1 {
 .gravatar_edit {
   margin-top: 15px;
 }
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
