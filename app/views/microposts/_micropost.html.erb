@@ -1,0 +1,12 @@
+<li class="mb-3" id="micropost-<%= micropost.id %>">
+  <%= link_to gravatar_for(micropost.user, size: 50), micropost.user %>
+  <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
+  <h6 class="content mt-1"><%= micropost.content %></h6>
+  <span class="timestamp bi-alarm text-right d-flex align-items-center" style="font-size: 0.8rem;">
+    Posted <%= time_ago_in_words(micropost.created_at) %> ago.
+    <% if current_user?(micropost.user) %>
+      <%= button_to "delete", micropost, method: :delete,
+                    form: { data: { turbo_confirm: "You sure?" } }, class: "btn btn-danger p-1 mx-3" %>
+    <% end %>
+  </span>
+</li>

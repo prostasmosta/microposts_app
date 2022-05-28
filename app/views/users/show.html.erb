@@ -1,11 +1,22 @@
-<p style="color: green"><%= notice %></p>
+<% provide(:title, @user.name) %>
+<h1 class="my-3">Profile</h1>
+<div class="row">
+  <%= render @user %>
+  <div>
+    <%= link_to "Edit", edit_user_path(@user) %> |
+    <%= link_to "Back to users", users_path %>
+  </div>
+  <div class="mt-3">
+    <%= button_to "Destroy", @user, method: :delete, class: 'btn btn-danger' %>
+  </div>
 
-<%= render @user %>
-
-<div>
-  <%= link_to "Edit this user", edit_user_path(@user) %> |
-  <%= link_to "Back to users", users_path %>
-</div>
-<div class="mt-3">
-  <%= button_to "Destroy this user", @user, method: :delete, class: 'btn btn-danger' %>
+  <div class="col-md-8 mt-4">
+    <% if @user.microposts.any? %>
+      <h2 class="text-center">Microposts (<%= @user.microposts.count %>)</h2>
+      <ol class="microposts">
+        <%= render @microposts %>
+      </ol>
+      <%= will_paginate @microposts %>
+    <% end %>
+  </div>
 </div>
