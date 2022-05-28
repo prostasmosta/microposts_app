@@ -1,8 +1,15 @@
-<li class="mb-3">
-  <%= gravatar_for user, size: 50 %>
-  <%= link_to user.name, user %>
+<li class="mb-3 d-flex align-items-center">
+  <div>
+    <%= gravatar_for user, size: 50 %>
+  </div>
+  <div class="mx-2">
+    <%= link_to user.name, user %>
+  </div>
   <% if current_user.admin? && !current_user?(user) %>
-    | <%= button_to "delete", user, method: :delete,
-                    form: { data: { turbo_confirm: "You sure?" } }, class: 'btn btn-danger'%>
+    |
+    <span class="mx-2">
+      <%= button_to "delete", user, method: :delete,
+                    form: { data: { turbo_confirm: "You sure?" } }, class: 'btn btn-danger' %>
   <% end %>
+  </span>
 </li>
