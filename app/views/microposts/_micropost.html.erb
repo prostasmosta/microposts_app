@@ -1,7 +1,16 @@
 <li class="mb-3" id="micropost-<%= micropost.id %>">
   <%= link_to gravatar_for(micropost.user, size: 50), micropost.user %>
-  <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
-  <h6 class="content mt-1"><%= micropost.content %></h6>
+  <span class="user">
+    <%= link_to micropost.user.name, micropost.user %>
+  </span>
+  <h6 class="content mt-1">
+    <%= micropost.content %>
+    <p>
+      <% if micropost.picture? %>
+        <%= link_to image_tag(micropost.pic_thumb, class: 'rounded-3 mt-1'), micropost.picture %>
+      <% end %>
+    </p>
+  </h6>
   <span class="timestamp bi-alarm text-right d-flex align-items-center" style="font-size: 0.8rem;">
     Posted <%= time_ago_in_words(micropost.created_at) %> ago.
     <% if current_user?(micropost.user) %>
