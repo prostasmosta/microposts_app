@@ -6,14 +6,18 @@
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control' %>
 
-      <%= f.label :password %>
-      <%= link_to "(forgot password)", new_password_reset_path %>
-      <%= f.password_field :password, class: 'form-control' %>
+      <div class="mt-2">
+        <%= f.label :password %>
+        <%= link_to "(forgot password)", new_password_reset_path %>
+        <%= f.password_field :password, class: 'form-control' %>
+      </div>
 
-      <%= f.label :remember_me, class: "checkbox inline" do %>
-        <%= f.check_box :remember_me %>
-        <span>Remember me</span>
-      <% end %>
+      <div class="mt-2">
+        <%= f.label :remember_me, class: "checkbox inline" do %>
+          <%= f.check_box :remember_me %>
+          <span>Remember me</span>
+        <% end %>
+      </div>
 
       <p><%= f.submit "Log in", class: "btn btn-primary my-3" %></p>
     <% end %>
